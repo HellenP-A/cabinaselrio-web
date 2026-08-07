@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="es-CR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cabinas El Río · Hospedaje en Upala, Costa Rica</title>
+<meta name="description" content="Cabinas El Río: hospedaje en medio de la naturaleza en Canalete, Upala, Alajuela. Reservá por WhatsApp 8615-9777 o al 2470-1198. Tarifas para familias, empresas y agentes.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --river:#1d6f6b; --river-dark:#134f4c; --river-deep:#0c3a38;
+    --sun:#e8a33d; --sun-soft:#f6d9a8;
+    --earth:#8a6240; --wood:#6e4c30;
+    --cream:#faf6ee; --paper:#fffdf8;
+    --ink:#1f2a28; --ink-soft:#4b5a57;
+    --line:#e4dcc9;
+    --radius:18px;
+    --shadow:0 10px 30px rgba(12,58,56,.10);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter',sans-serif;color:var(--ink);background:var(--cream);line-height:1.6}
+  h1,h2,h3,h4{font-family:'Bricolage Grotesque',sans-serif;line-height:1.15}
+  img{max-width:100%;display:block}
+  a{color:var(--river)}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+  section{padding:72px 0}
+  .kicker{display:inline-block;font-size:.8rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--sun);margin-bottom:10px}
+  .kicker::before{content:"";display:inline-block;width:26px;height:3px;background:var(--sun);border-radius:2px;margin-right:10px;vertical-align:middle}
+  h2{font-size:clamp(1.7rem,3.5vw,2.5rem);font-weight:800;color:var(--river-deep);margin-bottom:14px}
+  .lead{color:var(--ink-soft);max-width:62ch;font-size:1.05rem}
+
+  /* ===== Header ===== */
+  header{position:sticky;top:0;z-index:50;background:rgba(250,246,238,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:70px}
+  .brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+  .brand svg{flex:none}
+  .brand b{font-family:'Bricolage Grotesque',sans-serif;font-size:1.15rem;color:var(--river-deep);font-weight:800}
+  .brand small{display:block;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--earth);font-weight:600}
+  .nav-links{display:flex;gap:26px;align-items:center}
+  .nav-links a{text-decoration:none;color:var(--ink-soft);font-weight:600;font-size:.92rem}
+  .nav-links a:hover{color:var(--river)}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:999px;font-weight:700;font-size:.95rem;text-decoration:none;transition:.2s;border:none;cursor:pointer}
+  .btn-wa{background:#25d366;color:#fff}
+  .btn-wa:hover{background:#1ebe5b;transform:translateY(-1px)}
+  .btn-outline{border:2px solid var(--river);color:var(--river)}
+  .btn-outline:hover{background:var(--river);color:#fff}
+  .btn-sun{background:var(--sun);color:var(--river-deep)}
+  .btn-sun:hover{filter:brightness(1.05);transform:translateY(-1px)}
+  .nav .btn{padding:9px 18px;font-size:.88rem}
+  .menu-toggle{display:none;background:none;border:none;font-size:1.6rem;color:var(--river-deep);cursor:pointer}
+
+  /* ===== Hero ===== */
+  .hero{position:relative;overflow:hidden;background:linear-gradient(180deg,#eaf3ee 0%,var(--cream) 100%);padding:0}
+  .hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center;min-height:560px;padding-top:48px;padding-bottom:48px}
+  .hero h1{font-size:clamp(2.2rem,5vw,3.6rem);font-weight:800;color:var(--river-deep)}
+  .hero h1 em{font-style:normal;color:var(--river);position:relative}
+  .hero h1 em::after{content:"";position:absolute;left:0;bottom:4px;width:100%;height:10px;background:var(--sun-soft);z-index:-1;border-radius:4px}
+  .hero p{margin:18px 0 26px;color:var(--ink-soft);font-size:1.08rem;max-width:52ch}
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap}
+  .rating{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:8px 16px;margin-bottom:20px;font-size:.9rem;font-weight:600;color:var(--ink-soft);box-shadow:var(--shadow)}
+  .rating .stars{color:var(--sun);letter-spacing:2px}
+  .hero-art{position:relative}
+  .hero-art svg{width:100%;height:auto;border-radius:24px;box-shadow:var(--shadow)}
+  .hero-badge{position:absolute;bottom:-16px;left:-10px;background:#fff;border-radius:14px;padding:12px 18px;box-shadow:var(--shadow);display:flex;gap:10px;align-items:center;border:1px solid var(--line)}
+  .hero-badge b{font-family:'Bricolage Grotesque',sans-serif;font-size:1.3rem;color:var(--river)}
+  .hero-badge span{font-size:.8rem;color:var(--ink-soft);line-height:1.3}
+
+  /* ===== Features strip ===== */
+  .strip{background:var(--river-deep);color:#e9f2f0;padding:26px 0}
+  .strip .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  .strip-item{display:flex;gap:12px;align-items:center;font-size:.92rem;font-weight:600}
+  .strip-item svg{flex:none}
+
+  /* ===== Photo slots ===== */
+  .photo-slot{position:relative;border-radius:var(--radius);overflow:hidden;background:linear-gradient(135deg,#cfe3d8 0%,#9ec4b4 55%,#7dab99 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:var(--river-deep);min-height:200px;border:2px dashed rgba(19,79,76,.35)}
+  .photo-slot span{font-size:.78rem;font-weight:700;background:rgba(255,255,255,.75);padding:4px 12px;border-radius:999px}
+  .hero-art img{width:100%;height:auto;border-radius:24px;box-shadow:var(--shadow);object-fit:cover}
+  .card > img{width:100%;height:190px;object-fit:cover;display:block}
+
+  /* ===== Galería ===== */
+  .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;margin-top:36px}
+  .gallery figure{position:relative;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
+  .gallery img{width:100%;height:230px;object-fit:cover;display:block;transition:.3s}
+  .gallery figure:hover img{transform:scale(1.04)}
+  .gallery figcaption{position:absolute;left:0;right:0;bottom:0;padding:10px 14px;font-size:.82rem;font-weight:600;color:#fff;background:linear-gradient(transparent,rgba(12,58,56,.78))}
+
+  /* ===== Cabinas ===== */
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px;margin-top:36px}
+  .card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column;transition:.2s}
+  .card:hover{transform:translateY(-4px)}
+  .card .photo-slot{border-radius:0;border:none;min-height:170px}
+  .card-body{padding:20px 22px 24px;display:flex;flex-direction:column;gap:8px;flex:1}
+  .card-body h3{color:var(--river-deep);font-size:1.15rem}
+  .cap{display:inline-flex;align-items:center;gap:6px;background:var(--sun-soft);color:var(--wood);font-weight:700;font-size:.8rem;border-radius:999px;padding:4px 12px;width:fit-content}
+  .card-body p{font-size:.92rem;color:var(--ink-soft);flex:1}
+  .card-note{margin-top:34px;background:#fff;border-left:5px solid var(--sun);border-radius:12px;padding:16px 20px;font-size:.95rem;color:var(--ink-soft);box-shadow:var(--shadow)}
+
+  /* ===== Tarifas ===== */
+  .tarifas{background:linear-gradient(180deg,var(--cream),#f2ead9)}
+  .price-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px;margin-top:36px}
+  .price{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:30px 28px;box-shadow:var(--shadow);position:relative}
+  .price.destacada{background:var(--river-deep);color:#e9f2f0;border-color:var(--river-deep)}
+  .price.destacada h3,.price.destacada .amount{color:#fff}
+  .price.destacada li{border-color:rgba(255,255,255,.14)}
+  .price h3{font-size:1.05rem;color:var(--river-deep);text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px}
+  .amount{font-family:'Bricolage Grotesque',sans-serif;font-size:2.1rem;font-weight:800;color:var(--river)}
+  .amount small{font-size:.85rem;font-weight:600;color:inherit;opacity:.75}
+  .price ul{list-style:none;margin-top:16px}
+  .price li{padding:9px 0;border-bottom:1px solid var(--line);font-size:.92rem;display:flex;gap:9px;align-items:baseline}
+  .price li::before{content:"✓";color:var(--sun);font-weight:800}
+  .price li:last-child{border:none}
+  .iva-note{margin-top:24px;font-size:.85rem;color:var(--ink-soft);text-align:center}
+
+  /* ===== Empresas ===== */
+  .corp{background:var(--river-deep);color:#e9f2f0}
+  .corp .kicker{color:var(--sun)}
+  .corp h2{color:#fff}
+  .corp .lead{color:#c4d8d4}
+  .corp-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
+  .corp-feats{display:grid;gap:16px;margin-top:26px}
+  .corp-feat{display:flex;gap:14px;align-items:flex-start;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:16px 18px}
+  .corp-feat svg{flex:none;margin-top:2px}
+  .corp-feat b{display:block;color:#fff;margin-bottom:2px}
+  .corp-feat span{font-size:.9rem;color:#c4d8d4}
+  .corp-cta{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:var(--radius);padding:34px 30px;text-align:center}
+  .corp-cta .amount{color:var(--sun)}
+  .corp-cta p{font-size:.92rem;color:#c4d8d4;margin:10px 0 22px}
+
+  /* ===== Ubicación ===== */
+  .loc-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:40px;align-items:stretch;margin-top:36px}
+  .loc-info{display:flex;flex-direction:column;gap:18px}
+  .loc-item{display:flex;gap:14px;align-items:flex-start;background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:18px 20px;box-shadow:var(--shadow)}
+  .loc-item svg{flex:none;margin-top:3px}
+  .loc-item b{display:block;color:var(--river-deep)}
+  .loc-item span,.loc-item a{font-size:.93rem;color:var(--ink-soft)}
+  .map-frame{border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--line);min-height:380px}
+  .map-frame iframe{width:100%;height:100%;min-height:380px;border:0}
+
+  /* ===== Contacto ===== */
+  .contacto{background:linear-gradient(135deg,var(--river) 0%,var(--river-dark) 100%);color:#fff;text-align:center;border-radius:28px;margin:0 22px}
+  .contacto-inner{max-width:640px;margin:0 auto;padding:70px 24px}
+  .contacto h2{color:#fff}
+  .contacto p{color:#d3e6e3;margin-bottom:30px}
+  .contact-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+  .btn-white{background:#fff;color:var(--river-deep)}
+  .btn-white:hover{transform:translateY(-1px)}
+
+  /* ===== Footer ===== */
+  footer{padding:46px 0 90px;text-align:center;color:var(--ink-soft);font-size:.88rem}
+  footer .brand{justify-content:center;margin-bottom:12px}
+  footer a{color:var(--river);text-decoration:none;font-weight:600}
+
+  /* ===== WhatsApp float ===== */
+  .wa-float{position:fixed;right:20px;bottom:20px;z-index:60;width:58px;height:58px;border-radius:50%;background:#25d366;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(0,0,0,.25);transition:.2s}
+  .wa-float:hover{transform:scale(1.08)}
+
+  /* ===== Responsive ===== */
+  @media(max-width:900px){
+    .hero .wrap,.corp-grid,.loc-grid{grid-template-columns:1fr}
+    .strip .wrap{grid-template-columns:repeat(2,1fr)}
+    .hero-art{order:-1}
+    .hero-badge{left:10px;bottom:-14px}
+    .nav-links{display:none;position:absolute;top:70px;left:0;right:0;background:var(--paper);flex-direction:column;padding:20px;gap:16px;border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
+    .nav-links.open{display:flex}
+    .menu-toggle{display:block}
+    section{padding:56px 0}
+  }
+  @media(max-width:520px){.strip .wrap{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<!-- ===================== HEADER ===================== -->
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#inicio" aria-label="Cabinas El Río">
+      <svg width="40" height="40" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="23" fill="#1d6f6b"/><circle cx="33" cy="14" r="6" fill="#e8a33d"/><path d="M4 30c6-4 10 4 16 0s10 4 16 0 8 2 8 2v16H4V30z" fill="#134f4c"/><path d="M2 34c7-5 11 5 18 0s11 5 18 0 8 3 8 3" stroke="#9ec4b4" stroke-width="2.5" fill="none" stroke-linecap="round"/><path d="M2 40c7-5 11 5 18 0s11 5 18 0 8 3 8 3" stroke="#cfe3d8" stroke-width="2.5" fill="none" stroke-linecap="round"/></svg>
+      <span><b>Cabinas El Río</b><small>Upala · Costa Rica</small></span>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#cabinas">Cabinas</a>
+      <a href="#tarifas">Tarifas</a>
+      <a href="#empresas">Empresas</a>
+      <a href="#galeria">Galería</a>
+      <a href="#ubicacion">Ubicación</a>
+      <a class="btn btn-wa" href="https://wa.me/50686159777?text=Hola%2C%20quiero%20informaci%C3%B3n%20para%20reservar%20en%20Cabinas%20El%20R%C3%ADo" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07a8.2 8.2 0 0 1-2.4-1.49 9 9 0 0 1-1.66-2.07c-.17-.3-.02-.46.13-.61.14-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.5 0 1.47 1.07 2.9 1.22 3.1.15.2 2.11 3.22 5.1 4.51.71.31 1.27.5 1.7.63.72.23 1.37.2 1.88.12.58-.09 1.76-.72 2-1.42.25-.7.25-1.3.18-1.42-.08-.13-.28-.2-.58-.35zM12.05 21.8h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.8 9.8 0 0 1-1.51-5.26c0-5.44 4.43-9.87 9.9-9.87a9.82 9.82 0 0 1 9.86 9.88c0 5.44-4.43 9.87-9.87 9.87zm8.4-18.27A11.8 11.8 0 0 0 12.04 0C5.5 0 .16 5.34.16 11.9c0 2.1.55 4.14 1.6 5.94L.05 24l6.31-1.65a11.9 11.9 0 0 0 5.68 1.44h.01c6.54 0 11.88-5.34 11.88-11.9 0-3.18-1.24-6.16-3.48-8.4z"/></svg>
+        Reservar
+      </a>
+    </nav>
+    <button class="menu-toggle" id="menuToggle" aria-label="Menú">☰</button>
+  </div>
+</header>
+
+<!-- ===================== HERO ===================== -->
+<div class="hero" id="inicio">
+  <div class="wrap">
+    <div>
+      <div class="rating"><span class="stars">★★★★</span> 4,2 · 55 opiniones en Google</div>
+      <h1>Descanse en medio de la naturaleza, <em>en el corazón de Upala</em></h1>
+      <p>Somos un hospedaje familiar en Canalete de Upala, rodeado de jardines, árboles y aire puro. Un lugar tranquilo, cómodo y a buen precio para su viaje de descanso o de trabajo.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-wa" href="https://wa.me/50686159777?text=Hola%2C%20quiero%20informaci%C3%B3n%20para%20reservar%20en%20Cabinas%20El%20R%C3%ADo" target="_blank" rel="noopener">Reservar por WhatsApp</a>
+        <a class="btn btn-outline" href="tel:+50624701198">Llamar 2470-1198</a>
+      </div>
+    </div>
+    <div class="hero-art">
+      <img src="images/hero.jpg" alt="El río junto a Cabinas El Río, Upala">
+      <div class="hero-badge">
+        <b>2–7</b>
+        <span>personas por cabina<br>equipadas y cómodas</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== STRIP ===================== -->
+<div class="strip">
+  <div class="wrap">
+    <div class="strip-item"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#e8a33d" stroke-width="2"><path d="M3 21h18M5 21V9l7-6 7 6v12M9 21v-6h6v6"/></svg>Cabinas equipadas y cómodas</div>
+    <div class="strip-item"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#e8a33d" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>Atención personal todos los días</div>
+    <div class="strip-item"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#e8a33d" stroke-width="2"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>Canalete, Upala, Alajuela</div>
+    <div class="strip-item"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#e8a33d" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Tarifas para empresas y agentes</div>
+  </div>
+</div>
+
+<!-- ===================== CABINAS ===================== -->
+<section id="cabinas">
+  <div class="wrap">
+    <span class="kicker">Nuestras cabinas</span>
+    <h2>Espacio para parejas, familias y grupos</h2>
+    <p class="lead">Contamos con cabinas de distintos tamaños, con aire acondicionado, TV, abanico y minirefrigeradora, rodeadas de jardines.</p>
+    <div class="cards">
+      <div class="card">
+        <img src="images/cab-matrimonial.jpg" alt="Cabina matrimonial">
+        <div class="card-body">
+          <h3>Cabina matrimonial</h3>
+          <span class="cap">👥 Hasta 2 personas</span>
+          <p>Ideal para parejas o viajeros de trabajo que buscan tranquilidad.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="images/cab-estandar.jpg" alt="Cabina estándar">
+        <div class="card-body">
+          <h3>Cabina estándar</h3>
+          <span class="cap">👥 Hasta 3 personas</span>
+          <p>Nuestra opción más popular, perfecta para familias pequeñas o compañeros de viaje.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="images/cab-amplia.jpg" alt="Cabina amplia">
+        <div class="card-body">
+          <h3>Cabina amplia</h3>
+          <span class="cap">👥 Hasta 4 personas</span>
+          <p>Más espacio para una familia con niños o un grupo pequeño.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="images/cab-familiar.jpg" alt="Cabina familiar">
+        <div class="card-body">
+          <h3>Cabina familiar</h3>
+          <span class="cap">👥 Hasta 7 personas</span>
+          <p>Nuestra cabina más grande, perfecta para familias numerosas o grupos de amigos.</p>
+        </div>
+      </div>
+    </div>
+    <div class="card-note">
+      <b>¿Viaja en grupo grande?</b> También ofrecemos la propiedad completa para retiros, cuadrillas de trabajo o eventos familiares. Consúltenos por WhatsApp.
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TARIFAS ===================== -->
+<section class="tarifas" id="tarifas">
+  <div class="wrap">
+    <span class="kicker">Tarifas</span>
+    <h2>Opciones para cada tipo de visita</h2>
+    <p class="lead">Manejamos tarifas según el tamaño de su grupo y el tipo de estadía. Escríbanos y le cotizamos al momento, sin compromiso.</p>
+    <div class="price-grid">
+      <div class="price">
+        <h3>Tarifa general</h3>
+        <ul>
+          <li>Precio por cabina, por noche</li>
+          <li>Cabinas para 2 a 7 personas</li>
+          <li>Ideal para familias y parejas</li>
+          <li>Descuentos por estadías largas</li>
+        </ul>
+      </div>
+      <div class="price destacada">
+        <h3 style="color:var(--sun)">Empresas y agentes</h3>
+        <ul>
+          <li>Tarifa corporativa por huésped</li>
+          <li>Hospedaje para cuadrillas y personal</li>
+          <li>Facturación para su empresa</li>
+          <li>Coordinación directa con la administración</li>
+        </ul>
+      </div>
+      <div class="price">
+        <h3>Propiedad completa</h3>
+        <ul>
+          <li>Todas las cabinas en exclusiva</li>
+          <li>Ideal para retiros y eventos</li>
+          <li>Grupos grandes</li>
+          <li>Precio por persona o monto fijo</li>
+        </ul>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:34px">
+      <a class="btn btn-wa" href="https://wa.me/50686159777?text=Hola%2C%20quiero%20consultar%20las%20tarifas%20de%20Cabinas%20El%20R%C3%ADo" target="_blank" rel="noopener">Consultar tarifas por WhatsApp</a>
+    </div>
+    <p class="iva-note">También puede consultar llamando al 2470-1198. Le respondemos el mismo día.</p>
+  </div>
+</section>
+
+<!-- ===================== EMPRESAS ===================== -->
+<section class="corp" id="empresas">
+  <div class="wrap corp-grid">
+    <div>
+      <span class="kicker">Empresas y agentes</span>
+      <h2>Su equipo de trabajo, bien hospedado</h2>
+      <p class="lead">Recibimos con frecuencia personal de empresas, cuadrillas e instituciones que trabajan en la zona de Upala. Ofrecemos condiciones especiales para estadías corporativas.</p>
+      <div class="corp-feats">
+        <div class="corp-feat">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#e8a33d" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+          <div><b>Tarifa corporativa fija</b><span>Precio por huésped por noche, igual para todas las cabinas.</span></div>
+        </div>
+        <div class="corp-feat">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#e8a33d" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 15h6M9 11h2"/></svg>
+          <div><b>Respaldo para su contabilidad</b><span>Comprobantes y coordinación de pagos para su empresa.</span></div>
+        </div>
+        <div class="corp-feat">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#e8a33d" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <div><b>Grupos grandes</b><span>Capacidad para recibir cuadrillas y grupos numerosos.</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="corp-cta">
+      <div class="amount">¿Coordinamos?</div>
+      <p>Escríbanos y le preparamos una cotización para su equipo el mismo día.</p>
+      <a class="btn btn-sun" href="https://wa.me/50686159777?text=Hola%2C%20necesito%20una%20cotizaci%C3%B3n%20corporativa%20para%20Cabinas%20El%20R%C3%ADo" target="_blank" rel="noopener">Solicitar cotización</a>
+      <p style="margin:18px 0 0">o llame al <a href="tel:+50624701198" style="color:#fff;font-weight:700">2470-1198</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== GALERÍA ===================== -->
+<section id="galeria" style="padding-top:0">
+  <div class="wrap">
+    <span class="kicker">Galería</span>
+    <h2>Un vistazo a nuestro rincón</h2>
+    <div class="gallery">
+      <figure><img src="images/gal-rio.jpg" alt="El río" loading="lazy"><figcaption>El río, a pocos pasos</figcaption></figure>
+      <figure><img src="images/gal-aves.jpg" alt="Aves en el jardín" loading="lazy"><figcaption>Aves que nos visitan cada mañana</figcaption></figure>
+      <figure><img src="images/gal-entrada.jpg" alt="Entrada al atardecer" loading="lazy"><figcaption>Nuestra entrada al atardecer</figcaption></figure>
+      <figure><img src="images/gal-exterior.jpg" alt="Cabinas por fuera" loading="lazy"><figcaption>Las cabinas al amanecer</figcaption></figure>
+      <figure><img src="images/gal-sendero.jpg" alt="Senderos" loading="lazy"><figcaption>Senderos y zonas de descanso</figcaption></figure>
+      <figure><img src="images/gal-jardin.jpg" alt="Jardines" loading="lazy"><figcaption>Jardines y zonas verdes</figcaption></figure>
+      <figure><img src="images/gal-rancho.jpg" alt="Rancho y áreas comunes" loading="lazy"><figcaption>Rancho y áreas comunes</figcaption></figure>
+      <figure><img src="images/gal-parqueo.jpg" alt="Parqueo techado" loading="lazy"><figcaption>Parqueo techado</figcaption></figure>
+      <figure><img src="images/gal-habitacion.jpg" alt="Habitación acogedora" loading="lazy"><figcaption>Habitaciones acogedoras</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== UBICACIÓN ===================== -->
+<section id="ubicacion">
+  <div class="wrap">
+    <span class="kicker">Ubicación</span>
+    <h2>Fáciles de encontrar, difíciles de olvidar</h2>
+    <div class="loc-grid">
+      <div class="loc-info">
+        <div class="loc-item">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1d6f6b" stroke-width="2"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+          <div><b>Dirección</b><span>500 m norte de la entrada principal de Canalete, carretera hacia Upala.<br>Canalete, Upala, Alajuela, Costa Rica</span></div>
+        </div>
+        <div class="loc-item">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1d6f6b" stroke-width="2"><path d="M12 2a9 9 0 0 1 9 9c0 3.6-2.4 6.6-5 8.5-1.5 1.1-3 1.9-4 2.5-1-.6-2.5-1.4-4-2.5-2.6-1.9-5-4.9-5-8.5a9 9 0 0 1 9-9z"/><circle cx="9" cy="11" r="1" fill="#1d6f6b"/><circle cx="15" cy="11" r="1" fill="#1d6f6b"/><path d="M9 14c.8.8 1.9 1.2 3 1.2s2.2-.4 3-1.2"/></svg>
+          <div><b>Waze</b><a href="https://waze.com/ul?q=Cabinas%20el%20Rio%2C%20Upala%2C%20Alajuela&navigate=yes" target="_blank" rel="noopener">Abrir ruta en Waze</a></div>
+        </div>
+        <div class="loc-item">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1d6f6b" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.34 1.78.63 2.63a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.45-1.2a2 2 0 0 1 2.11-.45c.85.29 1.73.51 2.63.63A2 2 0 0 1 22 16.92z"/></svg>
+          <div><b>Teléfono fijo</b><a href="tel:+50624701198">2470-1198</a></div>
+        </div>
+        <div class="loc-item">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="#25d366"><path d="M17.5 14.4c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07a8.2 8.2 0 0 1-2.4-1.49 9 9 0 0 1-1.66-2.07c-.17-.3-.02-.46.13-.61.14-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.5 0 1.47 1.07 2.9 1.22 3.1.15.2 2.11 3.22 5.1 4.51.71.31 1.27.5 1.7.63.72.23 1.37.2 1.88.12.58-.09 1.76-.72 2-1.42.25-.7.25-1.3.18-1.42-.08-.13-.28-.2-.58-.35zM12.05 21.8h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.8 9.8 0 0 1-1.51-5.26c0-5.44 4.43-9.87 9.9-9.87a9.82 9.82 0 0 1 9.86 9.88c0 5.44-4.43 9.87-9.87 9.87zm8.4-18.27A11.8 11.8 0 0 0 12.04 0C5.5 0 .16 5.34.16 11.9c0 2.1.55 4.14 1.6 5.94L.05 24l6.31-1.65a11.9 11.9 0 0 0 5.68 1.44h.01c6.54 0 11.88-5.34 11.88-11.9 0-3.18-1.24-6.16-3.48-8.4z"/></svg>
+          <div><b>WhatsApp</b><a href="https://wa.me/50686159777" target="_blank" rel="noopener">8615-9777</a></div>
+        </div>
+        <div class="loc-item">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1d6f6b" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 6L2 7"/></svg>
+          <div><b>Correo</b><a href="mailto:info@cabinaselrio.com">info@cabinaselrio.com</a></div>
+        </div>
+      </div>
+      <div class="map-frame">
+        <iframe src="https://www.google.com/maps?q=Cabinas+el+Rio,+Upala,+Alajuela,+Costa+Rica&output=embed" title="Mapa de Cabinas El Río" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CONTACTO ===================== -->
+<section style="padding-top:0">
+  <div class="contacto">
+    <div class="contacto-inner">
+      <h2>Reserve hoy su cabina</h2>
+      <p>Escríbanos por WhatsApp y le confirmamos disponibilidad en minutos. También puede llamarnos al teléfono fijo.</p>
+      <div class="contact-btns">
+        <a class="btn btn-white" href="https://wa.me/50686159777?text=Hola%2C%20quiero%20reservar%20en%20Cabinas%20El%20R%C3%ADo" target="_blank" rel="noopener">💬 WhatsApp 8615-9777</a>
+        <a class="btn btn-sun" href="tel:+50624701198">📞 Llamar 2470-1198</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer>
+  <div class="wrap">
+    <a class="brand" href="#inicio">
+      <svg width="34" height="34" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="23" fill="#1d6f6b"/><circle cx="33" cy="14" r="6" fill="#e8a33d"/><path d="M4 30c6-4 10 4 16 0s10 4 16 0 8 2 8 2v16H4V30z" fill="#134f4c"/><path d="M2 34c7-5 11 5 18 0s11 5 18 0 8 3 8 3" stroke="#9ec4b4" stroke-width="2.5" fill="none" stroke-linecap="round"/><path d="M2 40c7-5 11 5 18 0s11 5 18 0 8 3 8 3" stroke="#cfe3d8" stroke-width="2.5" fill="none" stroke-linecap="round"/></svg>
+      <span><b>Cabinas El Río</b></span>
+    </a>
+    <p>500 m norte de la entrada principal de Canalete, carretera hacia Upala · Upala, Alajuela, Costa Rica<br>
+    Tel. <a href="tel:+50624701198">2470-1198</a> · WhatsApp <a href="https://wa.me/50686159777" target="_blank" rel="noopener">8615-9777</a> · <a href="mailto:info@cabinaselrio.com">info@cabinaselrio.com</a></p>
+    <p style="margin-top:14px">© <span id="year"></span> Cabinas El Río. Todos los derechos reservados.</p>
+  </div>
+</footer>
+
+<!-- ===================== WHATSAPP FLOTANTE ===================== -->
+<a class="wa-float" href="https://wa.me/50686159777?text=Hola%2C%20quiero%20informaci%C3%B3n%20de%20Cabinas%20El%20R%C3%ADo" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
+  <svg width="30" height="30" viewBox="0 0 24 24" fill="#fff"><path d="M17.5 14.4c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07a8.2 8.2 0 0 1-2.4-1.49 9 9 0 0 1-1.66-2.07c-.17-.3-.02-.46.13-.61.14-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.5 0 1.47 1.07 2.9 1.22 3.1.15.2 2.11 3.22 5.1 4.51.71.31 1.27.5 1.7.63.72.23 1.37.2 1.88.12.58-.09 1.76-.72 2-1.42.25-.7.25-1.3.18-1.42-.08-.13-.28-.2-.58-.35zM12.05 21.8h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.8 9.8 0 0 1-1.51-5.26c0-5.44 4.43-9.87 9.9-9.87a9.82 9.82 0 0 1 9.86 9.88c0 5.44-4.43 9.87-9.87 9.87zm8.4-18.27A11.8 11.8 0 0 0 12.04 0C5.5 0 .16 5.34.16 11.9c0 2.1.55 4.14 1.6 5.94L.05 24l6.31-1.65a11.9 11.9 0 0 0 5.68 1.44h.01c6.54 0 11.88-5.34 11.88-11.9 0-3.18-1.24-6.16-3.48-8.4z"/></svg>
+</a>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  const t = document.getElementById('menuToggle'), n = document.getElementById('navLinks');
+  t.addEventListener('click', () => n.classList.toggle('open'));
+  n.querySelectorAll('a').forEach(a => a.addEventListener('click', () => n.classList.remove('open')));
+</script>
+
+</body>
+</html>
